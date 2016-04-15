@@ -182,6 +182,7 @@ public class RSSignatureCaptureMainView extends LinearLayout implements OnClickL
     }
   }
 
+<<<<<<< Updated upstream
   public Bitmap getResizedBitmap(Bitmap image) {
     Log.d("React Signature","maxSize:"+maxSize);
     int width = image.getWidth();
@@ -204,5 +205,20 @@ public class RSSignatureCaptureMainView extends LinearLayout implements OnClickL
     if (this.signatureView != null) {
       this.signatureView.clearSignature();
     }
+=======
+  private WritableNativeMap getJSMap(String pathName, String encoded) {
+   WritableNativeMap params = new WritableNativeMap();
+   params.putString("pathName", pathName);
+   params.putString("encoded", encoded);
+   return params;
+ }
+
+  @Override public void onDragged() {
+    WritableMap event = Arguments.createMap();
+    event.putBoolean("dragged", true);
+    ReactContext reactContext = (ReactContext) getContext();
+    reactContext.getJSModule(RCTEventEmitter.class).receiveEvent(getId(), "topChange", event);
+
+>>>>>>> Stashed changes
   }
 }
