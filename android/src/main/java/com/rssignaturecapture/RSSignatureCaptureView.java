@@ -57,12 +57,13 @@ public class RSSignatureCaptureView extends View {
 		void onDragged();
 	}
 
-	public RSSignatureCaptureView(Context context) {
+	public RSSignatureCaptureView(Context context, SignatureCallback callback) {
 
 		super(context);
 
 		//Fixed parameters
 		mPaint.setAntiAlias(true);
+		this.callback = callback;
 		mPaint.setStyle(Paint.Style.STROKE);
 		mPaint.setStrokeCap(Paint.Cap.ROUND);
 		mPaint.setStrokeJoin(Paint.Join.ROUND);
